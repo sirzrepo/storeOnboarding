@@ -2,100 +2,103 @@ import Button from "../../../components/common/ui/Button";
 import { Card, CardContent } from "../../../components/ui/card";
 import { Badge } from "../../../components/ui/badge";
 import { useNavigate } from "react-router-dom";
+import { Shield, Sparkles, Star, TrendingUp } from "lucide-react";
+
+const sampleImg = "https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 
 const statsData = [
   {
-    icon: "/container-2.svg",
+    icon:<Star className="h-6 w-6 text-white" />,
     value: "10,000+",
     label: "Stores Created",
-    gradient:
-      "bg-[linear-gradient(135deg,rgba(254,252,232,1)_0%,rgba(255,247,237,1)_100%)]",
+    bgColor:"bg-gradient-to-br from-orange-400 to-amber-500",
+    cardBg:"bg-gradient-to-br from-orange-50 to-amber-50/50"
   },
   {
-    icon: "/container-1.svg",
+    icon:<TrendingUp className="h-6 w-6 text-white" />,
     value: "$50M+",
     label: "Revenue Generated",
-    gradient:
-      "bg-[linear-gradient(135deg,rgba(240,253,244,1)_0%,rgba(236,253,245,1)_100%)]",
+    bgColor:"bg-gradient-to-br from-green-400 to-emerald-500",
+    cardBg:"bg-gradient-to-br from-green-50 to-emerald-50/50"
   },
   {
-    icon: "/container-3.svg",
+    icon:<Shield className="h-6 w-6 text-white" />,
     value: "98%",
     label: "Success Rate",
-    gradient:
-      "bg-[linear-gradient(135deg,rgba(239,246,255,1)_0%,rgba(236,254,255,1)_100%)]",
+    bgColor:"bg-gradient-to-br from-blue-400 to-cyan-500",
+    cardBg:"bg-gradient-to-br from-blue-50 to-cyan-50/50"
   },
 ];
 
 const storeCardsData = [
   {
-    image: "/imagewithfallback-6.png",
+    image: sampleImg,
     category: "Beauty",
     categoryColor: "bg-pink-500",
     storeName: "Glow Beauty Co.",
   },
   {
-    image: "/imagewithfallback-7.png",
+    image: sampleImg,
     category: "Fitness",
     categoryColor: "bg-emerald-500",
     storeName: "FitPro Gear",
   },
   {
-    image: "/imagewithfallback-8.png",
+    image: sampleImg,
     category: "Tech Gadgets",
     categoryColor: "bg-blue-500",
     storeName: "TechNova",
   },
   {
-    image: "/imagewithfallback-9.png",
+    image: sampleImg,
     category: "Pets",
     categoryColor: "bg-orange-500",
     storeName: "Pawsome Pets",
   },
   {
-    image: "/imagewithfallback-10.png",
+    image: sampleImg,
     category: "Home & Kitchen",
     categoryColor: "bg-violet-500",
     storeName: "Cozy Home",
   },
   {
-    image: "/imagewithfallback-11.png",
+    image: sampleImg,
     category: "Jewelry",
     categoryColor: "bg-yellow-500",
     storeName: "Luxe Jewelry",
   },
   {
-    image: "/imagewithfallback-6.png",
+    image: sampleImg,
     category: "Beauty",
     categoryColor: "bg-pink-500",
     storeName: "Glow Beauty Co.",
   },
   {
-    image: "/imagewithfallback-7.png",
+    image: sampleImg,
     category: "Fitness",
     categoryColor: "bg-emerald-500",
     storeName: "FitPro Gear",
   },
   {
-    image: "/imagewithfallback-8.png",
+    image: sampleImg,
     category: "Tech Gadgets",
     categoryColor: "bg-blue-500",
     storeName: "TechNova",
   },
   {
-    image: "/imagewithfallback-9.png",
+    image: sampleImg,
     category: "Pets",
     categoryColor: "bg-orange-500",
     storeName: "Pawsome Pets",
   },
   {
-    image: "/imagewithfallback-10.png",
+    image: sampleImg,
     category: "Home & Kitchen",
     categoryColor: "bg-violet-500",
     storeName: "Cozy Home",
   },
   {
-    image: "/imagewithfallback-11.png",
+    image: sampleImg,
     category: "Jewelry",
     categoryColor: "bg-yellow-500",
     storeName: "Luxe Jewelry",
@@ -156,10 +159,11 @@ export const MainContentSection = (): JSX.Element => {
           {statsData.map((stat, index) => (
             <Card
               key={index}
-              className={`${stat.gradient} rounded-2xl border-2 border-solid border-white shadow-card-shadow`}
+              className={`${stat.cardBg} rounded-2xl border-2 border-solid border-white shadow-card-shadow`}
             >
               <CardContent className="flex flex-col items-center pt-6 pb-6 gap-2">
-                <img className="w-20 h-20" alt="Container" src={stat.icon} />
+                {/* <img className="w-20 h-20" alt="Container" src={stat.icon} /> */}
+                <div className={`flex h-14 w-14 items-center justify-center rounded-2xl shadow-lg ${stat.bgColor}`}>{stat.icon}</div>
                 <div className="[font-family:'Inter',Helvetica] font-normal text-[#0e162b] text-3xl text-center tracking-[0.40px] leading-9">
                   {stat.value}
                 </div>
@@ -172,18 +176,37 @@ export const MainContentSection = (): JSX.Element => {
         </div>
 
         <Card className="w-full rounded-3xl border-2 border-solid border-[#f2e7fe] shadow-card-shadow bg-[linear-gradient(135deg,rgba(255,255,255,1)_0%,rgba(250,245,255,0.5)_100%)] overflow-hidden mt-12">
-          <CardContent className="flex flex-col items-center gap-10 pt-[50px] pb-0.5 px-[50px]">
-            <img
-              className="w-full h-auto"
-              alt="Container"
-              src="/container.svg"
-            />
+          <CardContent className="flex flex-col items-center gap-10 pt-[50px] pb-10 px-[50px]">
+            <div className="flex flex-col items-center justify-center gap-8 md:flex-row">
+              {/* Gradient Circle Icon */}
+              <div className="relative">
+                <div className="absolute inset-0 animate-pulse rounded-full bg-gradient-to-br from-purple-300/30 to-blue-300/30 blur-2xl" />
+                <div className="relative flex h-32 w-32 items-center justify-center rounded-full border-4 border-white/50 bg-gradient-to-br from-purple-500 via-fuchsia-500 to-blue-500 shadow-xl backdrop-blur-sm md:h-40 md:w-40">
+                  <Sparkles className="h-16 w-16 text-white md:h-20 md:w-20" />
+                </div>
+              </div>
+
+              {/* Dashed Line */}
+              <div className="hidden h-0.5 w-24 border-t-2 border-dashed border-purple-300 md:block" />
+
+              {/* Grid Icon */}
+              <div className="rounded-2xl border border-purple-200/50 bg-white p-6 shadow-lg">
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-purple-400 to-purple-500 shadow-sm" />
+                  <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-blue-400 to-blue-500 shadow-sm" />
+                  <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-pink-400 to-pink-500 shadow-sm" />
+                  <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-green-400 to-green-500 shadow-sm" />
+                </div>
+              </div>
+            </div>
             <p className="[font-family:'Inter',Helvetica] font-normal text-[#45556c] text-lg text-center tracking-[-0.44px] leading-7 whitespace-nowrap">
               ✨ AI analyzes your preferences and builds a complete store in
               seconds
             </p>
           </CardContent>
         </Card>
+
+
 
         <div className="flex flex-col gap-8 w-full mt-20">
           <div className="flex items-center justify-center gap-3">
@@ -199,9 +222,9 @@ export const MainContentSection = (): JSX.Element => {
             stores in under 60 seconds
           </p>
 
-          <div className="w-full overflow-hidden mt-2">
+          <div className="w-full overflow-x-auto overflow-y-hidden mt-2 scrollbar-hide">
             <div
-              className="flex items-start gap-6 animate-marquee"
+              className="flex items-start gap-6"
               style={{ width: "max-content" }}
             >
               {storeCardsData.map((store, index) => (

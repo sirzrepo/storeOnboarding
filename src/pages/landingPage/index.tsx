@@ -1,6 +1,7 @@
 import Button from "../../components/common/ui/Button";
 import { MainContentSection } from "./components/mainSection";
 import { FooterSection } from "./components/footer";
+import logo from "../../assets/img/sirz logo png 1.svg"
 
 const decorativeElements = [
   {
@@ -313,12 +314,12 @@ export const LandingPageDesign = (): JSX.Element => {
           <img
             className="relative w-[100px] h-[35px] object-cover"
             alt="Image"
-            src="/image-1.png"
+            src={logo}
           />
 
           <Button
             variant="outline"
-            className="w-20 h-10 rounded-lg border-[#3752e9] text-[#314157] font-medium text-sm tracking-[-0.15px]"
+            className="w-20 h-10 whitespace-nowrap rounded-lg border-[#3752e9] text-[#314157] font-medium text-sm tracking-[-0.15px]"
           >
             Sign in
           </Button>
