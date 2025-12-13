@@ -2,7 +2,7 @@ import Button from "../../../components/common/ui/Button";
 import { Card, CardContent } from "../../../components/ui/card";
 import { Badge } from "../../../components/ui/badge";
 import { useNavigate } from "react-router-dom";
-import { Shield, Sparkles, Star, TrendingUp } from "lucide-react";
+import { ArrowRight, Rocket, Shield, Sparkles, Star, TrendingUp } from "lucide-react";
 
 const sampleImg = "https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 
@@ -136,22 +136,24 @@ export const MainContentSection = (): JSX.Element => {
         </p>
 
         <div className="flex gap-4 items-center">
-          <Button onClick={() => navigate("/onboarding")} className="h-14 px-10 bg-blue-500 hover:bg-sirz-colour/90 rounded-lg">
-            <img className="w-6 h-6" alt="Icon" src="/icon.svg" />
+          <Button onClick={() => navigate("/onboarding")} className="h-14 flex items-center gap-4 px-10 bg-blue-500 hover:bg-sirz-colour/90 rounded-lg">
+            <Rocket className="w-5 h-5" />
             <span className="[font-family:'Inter',Helvetica] font-medium text-white text-lg tracking-[-0.44px] leading-7 whitespace-nowrap">
               Start Building Now
             </span>
-            <img className="w-6 h-6" alt="Icon" src="/icon-1.svg" />
+            <ArrowRight className="w-5 h-5" />
           </Button>
+          
 
           <Button
             variant="outline"
+            onClick={() => navigate("/onboarding")}
             className="h-[60px] px-[18px] gap-[15.2px] bg-white border-2 border-solid border-[#3752e9] hover:bg-gray-50 rounded-lg"
           >
             <span className="[font-family:'Inter',Helvetica] font-medium text-[#314157] text-lg tracking-[-0.44px] leading-7 whitespace-nowrap">
               Watch Demo
             </span>
-            <img className="w-5 h-5" alt="Icon" src="/icon-3.svg" />
+            <Sparkles className="w-5 h-5 text-pink-500" />
           </Button>
         </div>
 
